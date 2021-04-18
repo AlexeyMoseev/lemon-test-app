@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, { useState } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import Layout from './hoc/Layout/Layout'
+import NewsPage from './containers/NewsPage/NewsPage'
+import ProfilePage from './containers/ProfilePage/ProfilePage'
+import LoginPage from './containers/LoginPage/LoginPage'
+import MainPage from './containers/MainPage/MainPage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+	function setAuthenticated(param) {
+		setIsAuthenticated(param)
+	}
+
+	let routes = (
+		<Switch>
+			<Route path='/news' component={NewsPage} />
+			<Route path='/login'>
+				<LoginPage setAuthenticated={setAuthenticated} />
+			</Route>
+			<Redirect from='/profile' to='/login' />
+			<Route path='/' exact component={MainPage} />
+			<Redirect to='/' />
+		</Switch>
+	)
+
+	if (isAuthenticated) {
+		routes = (
+			<Switch>
+				<Route path='/news' component={NewsPage} />
+				<Route path='/login'>
+					<LoginPage setAuthenticated={setAuthenticated} />
+				</Route>
+				<Route path='/profile'>
+					<ProfilePage setAuthenticated={setAuthenticated} />
+				</Route>
+				<Route path='/' exact component={MainPage} />
+				<Redirect to='/' />
+			</Switch>
+		)
+	}
+	return <Layout>{routes}</Layout>
 }
 
-export default App;
+export default App

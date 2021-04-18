@@ -1,0 +1,27 @@
+.ProfilePage {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.ProfilePage>div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfilePage img {
+    margin-bottom: 10px;
+}
+
+.ProfilePage p {
+    height: 150px;
+    border: 2px solid #22c684;
+}
+
+.ProfilePage h1 {
+    text-align: center;
+    color: #22c684;
+}

@@ -1,0 +1,27 @@
+.MainPage {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.MainPage>div {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.MainPage h1 {
+    text-align: center;
+    color: #22c684;
+}
+
+.MainPage p {
+    font-size: 30px;
+    padding-top: 10px;
+    text-align: center;
+    color: #22c684;
+    height: 150px;
+    border: 2px solid #22c684;
+}

@@ -1,0 +1,33 @@
+.LoginPage {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.LoginPage h1 {
+    text-align: center;
+    color: #22c684;
+}
+
+.LoginPage h2 {
+    margin-top: 0px;
+}
+
+.LoginPage>div {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.LoginForm {
+    margin-right: 30px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.MainInformationWrapper {
+    justify-content: center;
+    display: flex;
+}
